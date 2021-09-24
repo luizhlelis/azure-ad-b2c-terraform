@@ -3,7 +3,7 @@ terraform {
   required_providers {
     azuread = {
       source  = "hashicorp/azuread"
-      version = "~> 2.0.1"
+      version = "~> 2.4.0"
     }
   }
 }
@@ -21,6 +21,8 @@ data "azuread_client_config" "current" {}
 
 resource "azuread_application" "django_azure_b2c_auth" {
   display_name     = "django-azure-b2c-auth"
+  sign_in_audience = "AzureADMultipleOrgs"
+  logo_image       = filebase64("${path.module}/assets/code.png")
 
   api {
     mapped_claims_enabled          = true
