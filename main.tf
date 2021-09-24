@@ -70,7 +70,15 @@ resource "azuread_application" "django_azure_b2c_auth" {
   }
 }
 
+resource "time_rotating" "django_azure_b2c_auth" {
+  rotation_days = 7
+}
+
 resource "azuread_application_password" "django_azure_b2c_auth" {
   display_name          = format("%s-%s",azuread_application.django_azure_b2c_auth.display_name,"client-secret")
   application_object_id = azuread_application.django_azure_b2c_auth.object_id
+
+  rotate_when_changed = {
+    rotation = time_rotating.django_azure_b2c_auth.id
+  }
 }
