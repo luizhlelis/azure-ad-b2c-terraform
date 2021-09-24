@@ -21,7 +21,7 @@ data "azuread_client_config" "current" {}
 
 resource "azuread_application" "django_azure_b2c_auth" {
   display_name     = "django-azure-b2c-auth"
-  sign_in_audience = "AzureADMultipleOrgs"
+  sign_in_audience = "AzureADandPersonalMicrosoftAccount"
   logo_image       = filebase64("${path.module}/assets/code.png")
 
   api {
