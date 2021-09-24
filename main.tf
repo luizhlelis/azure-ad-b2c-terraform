@@ -19,6 +19,9 @@ data "azuread_domains" "django_azure_b2c_auth" {
 # Client application section
 data "azuread_client_config" "current" {}
 
+# AzureAd Scope IDs
+data "azuread_application_published_app_ids" "well_known" {}
+
 resource "azuread_application" "django_azure_b2c_auth" {
   display_name     = "django-azure-b2c-auth"
   sign_in_audience = "AzureADandPersonalMicrosoftAccount"
@@ -50,11 +53,16 @@ resource "azuread_application" "django_azure_b2c_auth" {
   }
 
   required_resource_access {
-    resource_app_id = "00000003-0000-0000-c000-000000000000" # Microsoft Graph
+    resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 
     resource_access {
-      id   = "df021288-bdef-4463-88db-98f22de89214" # User.Read.All
-      type = "Role"
+      id   = "7427e0e9-2fba-42fe-b0c0-848c9e6a8182" # openid
+      type = "Scope"
+    }
+
+    resource_access {
+      id    = "37f7f235-527c-4136-accd-4a02d197296e" # offline_access
+      type  = "Scope"
     }
   }
 
