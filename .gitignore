@@ -32,3 +32,9 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Ignore node_modules folder (see ./custom-policies)
+node_modules
+
+# ignoring macos files
+.DS_Store
