@@ -41,3 +41,7 @@ terraform output app_registration_client_secret_key_id
 ```bash
 terraform output app_registration_client_secret_value
 ```
+
+## Custom policies
+
+Firslty, you need to create a new `Policy Key` in Azure B2C called `TokenSigningKeyContainer` and another called `B2C_1A_FacebookSecret` as signature, finally one called `TokenEncryptionKeyContainer` as encryption.
