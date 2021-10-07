@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="luizhlelis.onmicrosoft.com" PolicyId="B2C_1A_SignUpOrSignin_MultipleEmailSelect" PublicPolicyUri="http://luizhlelis.onmicrosoft.com/B2C_1A_MultipleEmailSelect">
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="luizhlelis.onmicrosoft.com" PolicyId="B2C_1A_SignUpOrSignin_CustomPage" PublicPolicyUri="http://luizhlelis.onmicrosoft.com/B2C_1A_CustomPage">
   <BasePolicy>
     <TenantId>luizhlelis.onmicrosoft.com</TenantId>
     <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
@@ -81,7 +81,7 @@
     </ClaimsTransformations>
     <ContentDefinitions>
       <ContentDefinition Id="api.selfasserted.selectemail">
-        <LoadUri>https://b2ccustompage.blob.core.windows.net/b2ccustompage/selfAssertedDynamicDropDown.cshtml</LoadUri>
+        <LoadUri>https://luizhlelisstorage.z13.web.core.windows.net/index</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.1.0</DataUri>
         <Metadata>
@@ -100,7 +100,7 @@
           <DisplayName>Get Secure Value</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
-            <Item Key="ServiceUrl">https://selectemailwebapi.azurewebsites.net/api/identity/checkemails</Item>
+            <Item Key="ServiceUrl">https://luizhlelisstorage.blob.core.windows.net/assets/mail-list.json?sp=r&amp;st=2021-10-07T14:00:36Z&amp;se=2021-10-08T14:00:36Z&amp;sv=2020-08-04&amp;sr=b&amp;sig=W%2FWGdbpyUCN%2F8wO%2FSIKfAlfkHIBH%2B6orAx2WfEBDbzc%3D</Item>
             <Item Key="AuthenticationType">None</Item>
             <Item Key="SendClaimsIn">Body</Item>
             <Item Key="AllowInsecureAuthInProduction">true</Item>
