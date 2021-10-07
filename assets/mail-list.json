@@ -1,0 +1,11 @@
+{
+    "version":"1.0.0.0",
+    "status":200,
+    "userMessage":"",
+    "emails":
+        [
+            "test@contoso.com",
+            "fake@gmail.com",
+            "john@fabrikam.com"
+        ]
+}
